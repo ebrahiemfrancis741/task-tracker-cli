@@ -1,21 +1,21 @@
 
-namespace TaskTracker
+namespace task_tracker_cli
 {
-  class Task
-  {
-    public int id;
-    public string description;
-    public string status;
-    public DateTime createdAt;
-    public DateTime updatedAt;
-
-    Task(int id, string description, string status, DateTime createdAt, DateTime updatedAt)
+    public class Task
     {
-      this.id = id;
-      this.description = description;
-      this.status = status;
-      this.createdAt = createdAt;
-      this.updatedAt = updatedAt;
+        public int id { get; set; }
+        public string description { get; set; }
+        public string status { get; set; }
+        public DateTime createdAt { get; set; }
+        public DateTime updatedAt { get; set; }
+
+        Task(int id, string description, string status, DateTime createdAt, DateTime updatedAt)
+        {
+            this.id = id;
+            this.description = description;
+            this.status = status;
+            this.createdAt = createdAt;
+            this.updatedAt = updatedAt;
+        }
     }
-  }
 }
