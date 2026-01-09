@@ -1,18 +1,22 @@
 ﻿
-class Program
+namespace TaskTracker
 {
-  static void Main(string[] args)
+  class Program
   {
-    string filePath = @"./data.json";
-    FileStream data = File.Open(filePath, FileMode.OpenOrCreate);
-    if (File.Exists(filePath))
+    static void Main(string[] args)
     {
-      Console.WriteLine("Data loaded successfully.");
-    }
-    else
-    {
-      Console.WriteLine("Could not open or create file '{0}'", filePath);
-    }
-  }
+      string filePath = @"./data.json";
+      FileStream data = File.Open(filePath, FileMode.OpenOrCreate);
 
+      if (File.Exists(filePath))
+      {
+        Console.WriteLine("Data loaded successfully.");
+      }
+      else
+      {
+        Console.WriteLine("Could not open or create file '{0}'", filePath);
+      }
+    }
+
+  }
 }
