@@ -12,7 +12,14 @@ namespace task_tracker_cli
             taskList = new List<Task>();
         }
 
-        public bool addTask() { return false; }
+        public bool addTask(Task task) {
+            if (!idExists(task.id))
+            {
+                taskList.Add(task);
+                return true;
+            }
+            return false;
+        }
 
         public bool updateTask() { return false; }
 

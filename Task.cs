@@ -9,7 +9,7 @@ namespace task_tracker_cli
         public DateTime createdAt { get; set; }
         public DateTime updatedAt { get; set; }
 
-        Task(int id, string description, string status, DateTime createdAt, DateTime updatedAt)
+        public Task(int id, string description, string status, DateTime createdAt, DateTime updatedAt)
         {
             this.id = id;
             this.description = description;
