@@ -17,5 +17,10 @@ namespace task_tracker_cli
             this.createdAt = createdAt;
             this.updatedAt = updatedAt;
         }
+
+        public override string ToString()
+        {
+            return $"id: {id}\ndescription: {description}\nstatus: {status}\ndate created: {createdAt}\ndate updated: {updatedAt}\n\n";
+        }
     }
 }

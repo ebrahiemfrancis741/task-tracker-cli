@@ -56,5 +56,13 @@ namespace task_tracker_cli
             return null;
         }
 
+        public void displayAllTasks()
+        {
+            for (int i = 0; i < taskList.Count; i++)
+            {
+                Console.WriteLine(taskList[i]);
+            }
+        }
+
     }
 }
