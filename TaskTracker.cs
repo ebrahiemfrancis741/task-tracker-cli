@@ -12,8 +12,9 @@ namespace task_tracker_cli
             taskList = new List<Task>();
         }
 
+        // adds a Task object to the tasklist if it is not already in there
         public bool addTask(Task task) {
-            if (!idExists(task.id))
+            if (getTask(task.id) == null)
             {
                 taskList.Add(task);
                 return true;
@@ -21,7 +22,16 @@ namespace task_tracker_cli
             return false;
         }
 
-        public bool updateTask() { return false; }
+        public bool updateTaskDescription(int id, string description) {
+            Task updatedTask = null;
+            updatedTask = getTask(id);
+            if (updatedTask != null) {
+                updatedTask.description = description;
+                updatedTask.updatedAt = DateTime.Now;
+                return true;
+            }
+            return false;
+        }
 
         public bool deleteTask() { return false; }
 
@@ -35,14 +45,15 @@ namespace task_tracker_cli
 
         public bool loadTasksFromSource() { return false; }
 
-        public bool idExists(int id)
+        // gets the Task object with specified id from the task list if it exists
+        public Task getTask(int id)
         {
             for (int i = 0; i < taskList.Count; i++) {
                 if (taskList[i].id == id) {
-                    return true;
+                    return taskList[i];
                 }
             }
-            return false;
+            return null;
         }
 
     }
