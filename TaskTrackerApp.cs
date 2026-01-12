@@ -12,13 +12,15 @@ namespace task_tracker_cli
             Task task = new Task(1, "learn math", "todo", DateTime.Now, DateTime.Now);
             if (taskTracker.addTask(task))
             {
-                Console.WriteLine("Task added:");
-                Console.WriteLine(taskTracker.taskList[0]);
+                Console.WriteLine("Task added");
+                //Console.WriteLine(taskTracker.taskList[0]);
 
-                if (taskTracker.updateTaskDescription(1, "Become the most famous mathematician/physicist ever"))
+                if (taskTracker.updateTaskDescription(1, "Become the most famous mathematician/physicist ever") &&
+                     taskTracker.updateTaskStatus(1, "in-progress"))
                 {
-                    Console.WriteLine("Task updated:");
-                    Console.WriteLine(taskTracker.taskList[0]);
+                    Console.WriteLine("Task updated");
+                    //Console.WriteLine(taskTracker.taskList[0]);
+
                 }
                 else
                 {
@@ -29,6 +31,9 @@ namespace task_tracker_cli
             {
                 Console.WriteLine("task Id already exists, please choose a different one");
             }
+            taskTracker.displayAllTasks();
+            taskTracker.deleteTask(1);
+            taskTracker.displayAllTasks();
         }
     }
 }
