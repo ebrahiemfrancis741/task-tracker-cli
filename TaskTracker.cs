@@ -60,7 +60,15 @@ namespace task_tracker_cli
             return false;
         }
 
-        public List<Task> getCompletedTasks() { return null; }
+        public List<Task> getCompletedTasks() {
+            List<Task> completedTasks = new List<Task>();
+            for (int i = 0; i < taskList.Count; i++) {
+                if (taskList[i].status.Equals("done")) {
+                    completedTasks.Add(taskList[i]);
+                }
+            }
+            return completedTasks;
+        }
 
         public List<Task> getIncompleteTasks() { return null; }
 
