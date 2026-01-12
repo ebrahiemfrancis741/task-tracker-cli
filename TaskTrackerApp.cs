@@ -31,6 +31,15 @@ namespace task_tracker_cli
             {
                 Console.WriteLine("task Id already exists, please choose a different one");
             }
+
+            List<Task> todoTasks = taskTracker.getTasksByStatus("in-progress");
+
+            Console.WriteLine("todo tasks:");
+            for (int i =0; i < todoTasks.Count; i++)
+            {
+                Console.WriteLine(todoTasks[i]);
+            }
+
             taskTracker.displayAllTasks();
             taskTracker.deleteTask(1);
             taskTracker.displayAllTasks();
