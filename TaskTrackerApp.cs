@@ -40,9 +40,12 @@ namespace task_tracker_cli
                 Console.WriteLine(todoTasks[i]);
             }
 
+
             taskTracker.displayAllTasks();
-            taskTracker.deleteTask(1);
+            //taskTracker.deleteTask(1);
             taskTracker.displayAllTasks();
+            //taskTracker.saveTasksToFile("tasks.json");
+           
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json;
 
 namespace task_tracker_cli
 {
@@ -73,8 +74,6 @@ namespace task_tracker_cli
             return tasks;
         }
 
-        public bool loadTasksFromSource() { return false; }
-
         // gets the Task object with specified id from the task list if it exists
         public Task getTask(int id)
         {
@@ -114,6 +113,14 @@ namespace task_tracker_cli
             {
                 Console.WriteLine(taskList[i]);
             }
+        }
+
+        public void saveTasksToFile(string filePath)
+        {
+            string json = JsonSerializer.Serialize(taskList);
+            Console.WriteLine("JSON:");
+            Console.WriteLine(json);
+            File.WriteAllText(filePath, json);
         }
 
     }
