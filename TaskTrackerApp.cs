@@ -87,5 +87,21 @@ namespace task_tracker_cli
                 Console.WriteLine("Failed to remove task, id does not exist");
             }
         }
+
+        static void cliUpdateTaskStatus(string[] args)
+        {
+            if (args.Length != 3)
+            {
+                Console.WriteLine("Correct usage: update-status 'id' 'description'");
+            }
+            if (taskTracker.updateTaskStatus(Convert.ToInt32(args[1]), args[2]))
+            {
+                Console.WriteLine("Successfully updated task status (ID: {0})", args[1]);
+            }
+            else
+            {
+                Console.WriteLine("Failed to update task status, id does not exist");
+            }
+        }
     }
 }
