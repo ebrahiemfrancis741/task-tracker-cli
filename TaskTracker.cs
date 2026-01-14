@@ -10,7 +10,7 @@ namespace task_tracker_cli
         public List<Task> taskList { get; set; }
         public TaskTracker()
         {
-            taskList = new List<Task>();
+            taskList = loadTasksFromFile("tasks.json");
         }
 
         // adds a Task object to the tasklist if it is not already in there
@@ -121,6 +121,21 @@ namespace task_tracker_cli
             Console.WriteLine("JSON:");
             Console.WriteLine(json);
             File.WriteAllText(filePath, json);
+        }
+
+        public List<Task> loadTasksFromFile(string filePath)
+        {
+            List<Task> tasks;
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                Console.WriteLine("Read from file: ");
+                Console.WriteLine(json);
+                tasks = JsonSerializer.Deserialize<List<Task>>(json);
+                return tasks;
+            }
+            // if file does not exist, simply return an empty list
+            return new List<Task>();
         }
 
     }
