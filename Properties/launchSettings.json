@@ -2,7 +2,7 @@
   "profiles": {
     "task-tracker-cli": {
       "commandName": "Project",
-      "commandLineArgs": "add 3 \"learn economics\""
+      "commandLineArgs": "delete 3"
     }
   }
 }

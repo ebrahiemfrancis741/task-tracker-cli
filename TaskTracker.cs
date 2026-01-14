@@ -118,8 +118,6 @@ namespace task_tracker_cli
         public void saveTasksToFile(string filePath)
         {
             string json = JsonSerializer.Serialize(taskList);
-            Console.WriteLine("JSON:");
-            Console.WriteLine(json);
             File.WriteAllText(filePath, json);
         }
 
@@ -129,8 +127,6 @@ namespace task_tracker_cli
             if (File.Exists(filePath))
             {
                 string json = File.ReadAllText(filePath);
-                Console.WriteLine("Read from file: ");
-                Console.WriteLine(json);
                 tasks = JsonSerializer.Deserialize<List<Task>>(json);
                 return tasks;
             }

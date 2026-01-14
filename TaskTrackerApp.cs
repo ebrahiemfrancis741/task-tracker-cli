@@ -22,6 +22,12 @@ namespace task_tracker_cli
                 case "add":
                     cliAddTask(args);
                     break;
+                case "update-description":
+                    cliUpdateTaskDescription(args);
+                    break;
+                case "delete":
+                    cliDeleteTask(args);
+                    break;
                 default:
                     Console.WriteLine("undefined operation specified");
                     break;
@@ -44,6 +50,41 @@ namespace task_tracker_cli
             else
             {
                 Console.WriteLine("Failed to add task");
+            }
+        }
+
+        static void cliUpdateTaskDescription(string[] args)
+        {
+            if (args.Length != 3)
+            {
+                Console.WriteLine("Correct usage: update-description 'id' 'description'");
+                return;
+            }
+            if (taskTracker.updateTaskDescription(Convert.ToInt32(args[1]), args[2]))
+            {
+                Console.WriteLine("Task updated (ID: {0})", args[1]);
+            }
+            else
+            {
+                Console.WriteLine("Failed to update Task, id not valid or does not exist");
+            }
+
+        }
+
+        static void cliDeleteTask(string[] args)
+        {
+            if (args.Length != 2)
+            {
+                Console.WriteLine("Correct usage: delete 'id'");
+                return;
+            }
+            if (taskTracker.deleteTask(Convert.ToInt32(args[1])))
+            {
+                Console.WriteLine("Successfully removed task (ID: {0})", args[1]);
+            }
+            else
+            {
+                Console.WriteLine("Failed to remove task, id does not exist");
             }
         }
     }
