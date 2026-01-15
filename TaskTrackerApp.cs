@@ -28,6 +28,12 @@ namespace task_tracker_cli
                 case "delete":
                     cliDeleteTask(args);
                     break;
+                case "update-status":
+                    cliUpdateTaskStatus(args);
+                    break;
+                case "list":
+                    list(args);
+                    break;
                 default:
                     Console.WriteLine("undefined operation specified");
                     break;
@@ -101,6 +107,28 @@ namespace task_tracker_cli
             else
             {
                 Console.WriteLine("Failed to update task status, id does not exist");
+            }
+        }
+
+        static void list(string[] args)
+        {
+            if (args.Length != 2)
+            {
+                Console.WriteLine("Correct usage: list all/todo/in-progress/done");
+                return;
+            }
+            if (args[1].Equals("all"))
+            {
+                taskTracker.displayAllTasks();
+            }
+            else
+            {
+                // display specific status
+                List<Task> tasks = taskTracker.getTasksByStatus(args[1]);
+                foreach (Task task in tasks)
+                {
+                    Console.WriteLine(task);
+                }
             }
         }
     }

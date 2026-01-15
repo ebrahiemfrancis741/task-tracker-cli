@@ -1,8 +1,7 @@
 {
   "profiles": {
     "task-tracker-cli": {
-      "commandName": "Project",
-      "commandLineArgs": "delete 3"
+      "commandName": "Project"
     }
   }
 }
