@@ -3,6 +3,8 @@ add, update, delete tasks which are saved into a file "tasks.json", saved into t
 the executable is located in. The app does not yet have too many error checking for things such as 
 wrong value types being used.
 
+This is my implementation of the project idea from : https://roadmap.sh/projects/task-tracker
+
 Please feel free to contact me on any criticms and or bugs :)
 
 Below you will find how to use the app:
